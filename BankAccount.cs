@@ -2,9 +2,9 @@ class BankAccount
 {
     private Person _owner;
     private string _password;
-    private int _balance;
+    private float _balance;
 
-    public BankAccount(Person owner, string password, int balance)
+    public BankAccount(Person owner, string password, float balance)
     {
         _owner = owner;
         _password = password;
@@ -18,7 +18,7 @@ class BankAccount
         _balance = 0;
     }
     
-    public void Deposit(int amount)
+    public void Deposit(float amount)
     {
         _balance += amount;
     }
@@ -35,6 +35,11 @@ class BankAccount
         }
     }
 
+    public void FeatureInterest(float featureInterestPercentage)
+    {
+        _balance += _balance * featureInterestPercentage;
+    }
+    
     public void ToString()
     {
         Console.WriteLine($"Current bank account information:");
@@ -54,7 +59,7 @@ class BankAccount
         return _password;
     }
     
-    public int GetBalance()
+    public float GetBalance()
     {
         return _balance;
     }
