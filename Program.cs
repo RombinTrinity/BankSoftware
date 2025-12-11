@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 class Program
 {
@@ -59,6 +59,8 @@ class Program
                                         case 1:
                                         {
                                             bankAccount.ToString();
+                                            
+                                            Console.WriteLine($"Currently feature interest percentage - {bank.GetFeatureInterestPercentage()}%.");
                                         }
                                             break;
                                         case 2:
@@ -94,7 +96,7 @@ class Program
                                             Console.WriteLine("Something went wrong. Please try to choose option again.");
                                         }
                                             break;
-                                }
+                                    }
                                 }
                             }
                             else
@@ -151,7 +153,7 @@ class Program
                     break;
                 case 2:
                 {
-                    Console.WriteLine("Welcome, sir. Choose an option to manage your bank:\n1.Find bank account.\n2.Display all bank accounts");
+                    Console.WriteLine("Welcome, sir. Choose an option to manage your bank:\n1.Find bank account.\n2.Display all bank accounts\n3.Manage feature interest percentage");
                     
                     int bInput = int.Parse(Console.ReadLine());
 
@@ -177,6 +179,19 @@ class Program
                         case 2:
                         {
                             bank.DisplayAllAccounts();
+                        }
+                            break;
+                        case 3:
+                        {
+                            Console.WriteLine($"Right now, out users get {bank.GetFeatureInterestPercentage()}% feature interest each month.\nEnter new percent of feature interest for our users:");
+                            int newFeatureInterestPercentage = int.Parse(Console.ReadLine());
+                            bank.SetFeatureInterestPercentage(newFeatureInterestPercentage);
+                        }
+                            break;
+                        case 4:
+                        {
+                            Console.WriteLine("Feature interest implementing...\n...\n...\nEverything went fine, feature interest implemented.");
+                            bank.FeatureInterest();
                         }
                             break;
                         default:
